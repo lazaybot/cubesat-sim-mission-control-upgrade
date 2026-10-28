@@ -1,5 +1,34 @@
 # CubeSat Sim — Mission Control Upgrade Proposal
 
+## What this project is
+
+A CubeSat is a small satellite built from standardized box-shaped units. The
+upstream CubeSat Sim project recreates the major systems of one on a Raspberry
+Pi: power, orientation, sensors, communications, data storage, and a ground
+dashboard. This repository is my engineering proposal for making that dashboard
+more trustworthy and useful for testing failures.
+
+The central problem is simple: a mission-control screen can look convincing
+while showing numbers that were measured, estimated, simulated, or completely
+missing. My design makes the source of every value visible and separates the
+fictional orbit from the real tabletop hardware.
+
+![Proposed mission-control data architecture](assets/cubesat-upgrade-architecture.svg)
+
+## Engineering design choices
+
+- **Provenance on every value:** label data as measured, derived, simulated,
+  mocked, or unavailable.
+- **No fake zeroes:** missing measurements remain visibly missing.
+- **Separate workspaces:** real hardware telemetry and orbit simulation cannot
+  be mistaken for each other.
+- **Fault injection through the mock hardware layer:** test the same service
+  boundaries used during normal operation instead of adding display-only tricks.
+- **Reproducible experiments:** record the initial condition, injected fault,
+  expected response, actual response, and recovery.
+- **Honest scope:** this repository is a design proposal and does not claim the
+  proposed dashboard has been implemented.
+
 ## Project scope
 
 This document proposes an engineering-focused mission-control and fault-testing
