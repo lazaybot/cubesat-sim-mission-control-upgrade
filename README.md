@@ -13,7 +13,7 @@ while showing numbers that were measured, estimated, simulated, or completely
 missing. My design makes the source of every value visible and separates the
 fictional orbit from the real tabletop hardware.
 
-![Proposed mission-control data architecture](assets/cubesat-upgrade-architecture.svg)
+![Proposed mission-control data architecture](assets/cubesat-upgrade-architecture.png)
 
 ## Engineering design choices
 
